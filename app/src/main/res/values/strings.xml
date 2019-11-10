@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Mealville</string>
+    <string name="meal_title">Meal Title</string>
+    <string name="description">Description</string>
+    <string name="ingredients">Ingredients (Separate ingredients using a comma)</string>
+    <string name="steps">Steps (Separate each step using a full-stop)</string>
+    <string name="submit">Submit</string>
+    <string name="new_recipe">New Recipe</string>
 </resources>

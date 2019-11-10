@@ -2,6 +2,7 @@ package m.nicholas.mealville;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         if(view == fab) {
-
+            Intent intent = new Intent(MainActivity.this,NewRecipeActivity.class);
+            startActivity(intent);
         }
     }
 }
