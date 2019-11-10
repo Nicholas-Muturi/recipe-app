@@ -9,33 +9,17 @@ public class Recipe {
     private static List<Recipe> allRecipes = new ArrayList<>();
     private String mealTitle;
     private String description;
-    private List<String> ingredients;
-    private List<String> steps;
+    private String[] ingredients;
+    private String[] steps;
     private int id;
 
     public Recipe(String mealTitle, String description, String ingredients, String steps) {
         this.mealTitle = mealTitle;
         this.description = description;
-        this.ingredients = Arrays.asList(ingredients.split(","));
-        this.steps = Arrays.asList(steps.split(","));
+        this.ingredients = ingredients.split(",");
+        this.steps = steps.split(".");
         allRecipes.add(this);
         this.id = allRecipes.size();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Recipe recipe = (Recipe) o;
-        return Objects.equals(mealTitle, recipe.mealTitle) &&
-                Objects.equals(description, recipe.description) &&
-                Objects.equals(ingredients, recipe.ingredients) &&
-                Objects.equals(steps, recipe.steps);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(mealTitle, description, ingredients, steps);
     }
 
     public String getMealTitle() {
@@ -54,19 +38,19 @@ public class Recipe {
         this.description = description;
     }
 
-    public List<String> getIngredients() {
+    public String[] getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(String[] ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getSteps() {
+    public String[] getSteps() {
         return steps;
     }
 
-    public void setSteps(List<String> steps) {
+    public void setSteps(String[] steps) {
         this.steps = steps;
     }
 

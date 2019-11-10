@@ -11,26 +11,30 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.List;
+
 import m.nicholas.mealville.R;
 import m.nicholas.mealville.models.Recipe;
 
 public class myRecipeListAdapter extends ArrayAdapter<Recipe> {
     private Context mContext;
+    private List<Recipe> mRecipes;
 
-    public myRecipeListAdapter(@NonNull Context context, int resource) {
+    public myRecipeListAdapter(@NonNull Context context, int resource, List<Recipe> recipes) {
         super(context, resource);
         this.mContext = context;
+        this.mRecipes = recipes;
     }
 
     @Override
     public int getCount() {
-        return Recipe.getAllRecipes().size();
+        return mRecipes.size();
     }
 
     @Nullable
     @Override
     public Recipe getItem(int position) {
-        return Recipe.getAllRecipes().get(position);
+        return mRecipes.get(position);
     }
 
     @NonNull
@@ -50,10 +54,10 @@ public class myRecipeListAdapter extends ArrayAdapter<Recipe> {
             tvMealDescription.setSingleLine(true);
             tvMealDescription.setEllipsize(TextUtils.TruncateAt.END);
             tvMealDescription.setText(description);
-
         } else {
             listView = convertView;
         }
+
         return listView;
     }
 

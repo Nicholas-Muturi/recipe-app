@@ -16,7 +16,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnItemClick;
 import m.nicholas.mealville.Adapters.myRecipeListAdapter;
 import m.nicholas.mealville.models.Recipe;
 
@@ -32,10 +31,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(Recipe.getAllRecipes().isEmpty()){
             Toast.makeText(MainActivity.this,"Add a new recipe to have it appear here",Toast.LENGTH_LONG).show();
         }
-
-        myRecipeListAdapter recipeListAdapter = new myRecipeListAdapter(this,R.layout.single_recipe_list_item);
-        recipeListView.setAdapter(recipeListAdapter);
         fab.setOnClickListener(this);
+        myRecipeListAdapter recipeListAdapter = new myRecipeListAdapter(this,R.layout.single_recipe_list_item,Recipe.getAllRecipes());
+        recipeListView.setAdapter(recipeListAdapter);
+        recipeListView.setOnItemClickListener((adapterView, view, i, l) -> {
+            Recipe clickedRecipe = (Recipe) adapterView.getAdapter().getItem(i);
+            Intent intent = new Intent(MainActivity.this,ViewRecipeActivity.class);
+            intent.putExtra("recipeTitle",clickedRecipe.getMealTitle());
+            intent.putExtra("recipeDescr",clickedRecipe.getDescription());
+            intent.putExtra("recipeIngr",clickedRecipe.getIngredients());
+            intent.putExtra("recipeSteps",clickedRecipe.getMealTitle());
+            startActivity(intent);
+            finish();
+        });
     }
 
     @Override

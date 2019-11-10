@@ -11,10 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ViewRecipeActivity"></activity>
         <activity android:name=".NewRecipeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="m.nicholas.mealville.MainActivity"/>
+                android:value="m.nicholas.mealville.MainActivity" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
