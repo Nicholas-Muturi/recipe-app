@@ -40,9 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("recipeTitle",clickedRecipe.getMealTitle());
             intent.putExtra("recipeDescr",clickedRecipe.getDescription());
             intent.putExtra("recipeIngr",clickedRecipe.getIngredients());
-            intent.putExtra("recipeSteps",clickedRecipe.getMealTitle());
+            intent.putExtra("recipeSteps",clickedRecipe.getSteps());
             startActivity(intent);
-            finish();
         });
     }
 

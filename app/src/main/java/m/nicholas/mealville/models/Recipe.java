@@ -17,7 +17,7 @@ public class Recipe {
         this.mealTitle = mealTitle;
         this.description = description;
         this.ingredients = ingredients.split(",");
-        this.steps = steps.split(".");
+        this.steps = steps.split("\\.");
         allRecipes.add(this);
         this.id = allRecipes.size();
     }
