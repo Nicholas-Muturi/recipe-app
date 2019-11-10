@@ -1,6 +1,7 @@
 package m.nicholas.mealville.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -12,11 +13,11 @@ public class Recipe {
     private List<String> steps;
     private int id;
 
-    public Recipe(String mealTitle, String description, List<String> ingredients, List<String> steps) {
+    public Recipe(String mealTitle, String description, String ingredients, String steps) {
         this.mealTitle = mealTitle;
         this.description = description;
-        this.ingredients = ingredients;
-        this.steps = steps;
+        this.ingredients = Arrays.asList(ingredients.split(","));
+        this.steps = Arrays.asList(steps.split(","));
         allRecipes.add(this);
         this.id = allRecipes.size();
     }

@@ -15,6 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import m.nicholas.mealville.models.Recipe;
 
 public class NewRecipeActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.etRecipeTitle) EditText recipeTitle;
@@ -48,13 +49,11 @@ public class NewRecipeActivity extends AppCompatActivity implements View.OnClick
             } else  if(unsplitSteps.isEmpty()){
                 recipeSteps.setError("This field cannot be empty");
             } else {
-                /* -- Validation Passed -- */
+                Recipe recipe = new Recipe(title,description,unsplitIngredients,unsplitSteps);
                 Intent intent = new Intent(NewRecipeActivity.this,MainActivity.class);
-                intent.putExtra("recipeTitle",title);
-                intent.putExtra("recipeDescr",description);
-                intent.putExtra("recipeIngredients",unsplitIngredients);
-                intent.putExtra("recipeSteps",unsplitSteps);
+                /*intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);*/
                 startActivity(intent);
+                finish();
             }
 
         }//end IF

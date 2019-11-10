@@ -16,12 +16,10 @@ import m.nicholas.mealville.models.Recipe;
 
 public class myRecipeListAdapter extends ArrayAdapter<Recipe> {
     private Context mContext;
-    private Recipe mRecipe;
 
-    public myRecipeListAdapter(@NonNull Context context, int resource, Recipe mRecipe) {
+    public myRecipeListAdapter(@NonNull Context context, int resource) {
         super(context, resource);
         this.mContext = context;
-        this.mRecipe = mRecipe;
     }
 
     @Override
