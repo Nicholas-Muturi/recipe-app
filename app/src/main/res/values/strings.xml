@@ -6,4 +6,6 @@
     <string name="steps">Steps (Separated using a full-stop)</string>
     <string name="submit">Submit Recipe</string>
     <string name="new_recipe">New Recipe</string>
+    <string name="view_steps">Steps</string>
+    <string name="view_ingredients">Ingredients</string>
 </resources>
