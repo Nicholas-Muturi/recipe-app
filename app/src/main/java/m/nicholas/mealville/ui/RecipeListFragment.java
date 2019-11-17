@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -31,6 +33,9 @@ import retrofit2.Response;
  */
 public class RecipeListFragment extends Fragment {
     @BindView(R.id.rvRecyclerView) RecyclerView recipeRecyclerView;
+    @BindView(R.id.progressBar) ProgressBar progressBar;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+
     private myRecyclerCardAdapter recyclerCardAdapter;
 
     public RecipeListFragment() {
@@ -45,33 +50,48 @@ public class RecipeListFragment extends Fragment {
         ButterKnife.bind(this,view);
 
         RapidApi client = RapidApiClient.getClient();
-        Call<ApiSearchResult> call = client.getRecipes("breakfast");
+        Call<ApiSearchResult> call = client.getRecipes("breakfast","breakfast",30);
         call.enqueue(new Callback<ApiSearchResult>() {
             @Override
             public void onResponse(Call<ApiSearchResult> call, Response<ApiSearchResult> response) {
+                hideProgressBar();
                 if(response.isSuccessful()){
                     List<Result> resultList = response.body().getResults();
                     recyclerCardAdapter = new myRecyclerCardAdapter(getContext(),resultList);
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
                     recipeRecyclerView.setAdapter(recyclerCardAdapter);
                     recipeRecyclerView.setLayoutManager(gridLayoutManager);
-                    System.out.println("Success");
+                    showResults();
                 }
                 else {
-                    System.out.println("Not successful");
+                    showUnsuccessfulMessage();
                 }
             }
             @Override
             public void onFailure(Call<ApiSearchResult> call, Throwable t) {
-                System.out.println("super failed");
+                showFailureMessage();
+                hideProgressBar();
             }
         });
-
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
-        recipeRecyclerView.setAdapter(recyclerCardAdapter);
-        recipeRecyclerView.setLayoutManager(gridLayoutManager);
         return view;
+    }
+
+    private void hideProgressBar(){
+        progressBar.setVisibility(View.GONE);
+    }
+
+    private void showFailureMessage() {
+        mErrorTextView.setText(getString(R.string.failure_message));
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText(getString(R.string.unsuccessful_message));
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showResults() {
+        recipeRecyclerView.setVisibility(View.VISIBLE);
     }
 
 }

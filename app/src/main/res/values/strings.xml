@@ -25,4 +25,8 @@
     <string name="soup">Soups</string>
     <string name="snacks">Snacks</string>
 
+    <!-- Search Result Messages-->
+    <string name="failure_message">Something went terribly wrong. Please check your Internet connection and try again later</string>
+    <string name="unsuccessful_message">Something went wrong. Please try again later</string>
+
 </resources>

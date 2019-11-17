@@ -22,7 +22,7 @@ public class RapidApiClient {
                     .addInterceptor(chain -> {
                         Request newRequest = chain.request().newBuilder()
                                 .addHeader("x-rapidapi-host",API_HOST)
-                                .addHeader("x-rapidapi-key","48151bdabdmsh46f877adf03e7a0p12bd83jsn875c8ea2e3d9")
+                                .addHeader("x-rapidapi-key",API_KEY)
                                 .build();
                         return chain.proceed(newRequest);
                     }).build();

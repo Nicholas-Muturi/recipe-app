@@ -7,6 +7,6 @@ import retrofit2.http.Query;
 
 public interface RapidApi {
     @GET("recipes/search")
-    Call<ApiSearchResult> getRecipes(@Query("query") String filterQuery);
+    Call<ApiSearchResult> getRecipes(@Query("query") String filterQuery, @Query("type") String type, @Query("number") int numberOfResults);
 
 }
