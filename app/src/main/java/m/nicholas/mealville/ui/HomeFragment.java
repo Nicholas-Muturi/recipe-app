@@ -4,14 +4,12 @@ package m.nicholas.mealville.ui;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,24 +47,44 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view == imgBreakfast){
-            RecipeListFragment recipeListFragment = new RecipeListFragment();
+            BreakfastListFragment breakfastListFragment = new BreakfastListFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,recipeListFragment)
+            transaction.replace(R.id.fragment_container,breakfastListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();
         }
         if(view == imgLunch){
-            System.out.println("Works 2");
+            LunchListFragment lunchListFragment = new LunchListFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container,lunchListFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null)
+                    .commit();
         }
         if(view == imgDinner){
-            System.out.println("Works 3");
+            DinnerListFragment dinnerListFragment = new DinnerListFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container,dinnerListFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null)
+                    .commit();
         }
         if(view == imgSoup){
-            System.out.println("Works 4");
+            SoupListFragment soupListFragment = new SoupListFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container,soupListFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null)
+                    .commit();
         }
         if(view == imgSnacks){
-            System.out.println("Works 5");
+            SnacksListFragment snacksListFragment = new SnacksListFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container,snacksListFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                    .addToBackStack(null)
+                    .commit();
         }
 
     }

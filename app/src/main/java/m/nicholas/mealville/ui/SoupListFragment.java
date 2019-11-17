@@ -2,16 +2,15 @@ package m.nicholas.mealville.ui;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -21,7 +20,6 @@ import m.nicholas.mealville.Adapters.myRecyclerCardAdapter;
 import m.nicholas.mealville.R;
 import m.nicholas.mealville.models.ApiSearchResult;
 import m.nicholas.mealville.models.Result;
-import m.nicholas.mealville.models.myOldRecipe;
 import m.nicholas.mealville.network.RapidApi;
 import m.nicholas.mealville.network.RapidApiClient;
 import retrofit2.Call;
@@ -31,14 +29,14 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RecipeListFragment extends Fragment {
+public class SoupListFragment extends Fragment {
     @BindView(R.id.rvRecyclerView) RecyclerView recipeRecyclerView;
     @BindView(R.id.progressBar) ProgressBar progressBar;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
 
     private myRecyclerCardAdapter recyclerCardAdapter;
 
-    public RecipeListFragment() {
+    public SoupListFragment() {
         // Required empty public constructor
     }
 
@@ -50,7 +48,7 @@ public class RecipeListFragment extends Fragment {
         ButterKnife.bind(this,view);
 
         RapidApi client = RapidApiClient.getClient();
-        Call<ApiSearchResult> call = client.getRecipes("breakfast","breakfast",30);
+        Call<ApiSearchResult> call = client.getRecipes("soup","soup",30);
         call.enqueue(new Callback<ApiSearchResult>() {
             @Override
             public void onResponse(Call<ApiSearchResult> call, Response<ApiSearchResult> response) {

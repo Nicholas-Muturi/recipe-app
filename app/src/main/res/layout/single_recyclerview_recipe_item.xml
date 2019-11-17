@@ -16,8 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:layout_alignParentTop="true"
+            android:contentDescription="Food image"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/gourmet" />
+            app:srcCompat="@drawable/food_placeholder" />
 
         <TextView
             android:id="@+id/recipeCardTitle"
@@ -26,7 +27,7 @@
             android:text="TextView"
             android:layout_below="@id/recipeImage"
             android:paddingStart="10dp"
-            android:paddingEnd="0dp"
+            android:paddingEnd="10dp"
             android:textSize="18sp"
             android:textColor="@color/textBlack" />
 

@@ -1,21 +1,27 @@
 package m.nicholas.mealville.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
+import java.text.DecimalFormat;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import m.nicholas.mealville.R;
 import m.nicholas.mealville.models.Result;
+import m.nicholas.mealville.ui.ViewRecipeActivity;
 
 public class myRecyclerCardAdapter extends RecyclerView.Adapter<myRecyclerCardAdapter.myViewHolder> {
     private Context mContext;
@@ -54,18 +60,30 @@ public class myRecyclerCardAdapter extends RecyclerView.Adapter<myRecyclerCardAd
             super(itemView);
             ButterKnife.bind(this,itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+
+        public void bindItems(Result result){
+            String prepTime;
+            String imageUrl = "https://spoonacular.com/recipeImages/" +result.getImage();
+            if(result.getReadyInMinutes()<60){
+                prepTime = "Prep Time: "+result.getReadyInMinutes()+ " min";
+            } else {
+                double time = (double) result.getReadyInMinutes()/60.0;
+                DecimalFormat format = new DecimalFormat("##.0");
+                prepTime = "Prep Time: "+ format.format(time)+ " hrs";
+            }
+            recipeTitle.setText(result.getTitle());
+            recipePrepTime.setText(prepTime);
+            Picasso.get().load(imageUrl).into(recipeImage);
         }
 
         @Override
         public void onClick(View view) {
-
-        }
-
-        public void bindItems(Result result){
-            String imageUrl = "https://spoonacular.com/recipeImages/" +result.getImageUrls();
-            String prepTime = "Prep Time: "+result.getReadyInMinutes()+ " min";
-            recipeTitle.setText(result.getTitle());
-            recipePrepTime.setText(prepTime);
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, ViewRecipeActivity.class);
+            intent.putExtra("rId",allResults.get(itemPosition).getId());
+            mContext.startActivity(intent);
         }
 
     }
