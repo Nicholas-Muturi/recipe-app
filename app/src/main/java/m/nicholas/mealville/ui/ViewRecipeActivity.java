@@ -77,7 +77,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
 
                     tvViewTitle.setText(recipe.getTitle());
                     tvViewPrepTime.setText(prepTime);
-                    tvServing.setText(0); // TODO: 17-Nov-19 Sort this out 
+                    tvServing.setText(0);
                     Picasso.get().load(recipe.getImage()).into(ivFoodImage);
                 }
             }
