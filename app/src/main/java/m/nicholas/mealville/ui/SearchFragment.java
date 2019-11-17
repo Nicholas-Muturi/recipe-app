@@ -1,4 +1,4 @@
-package m.nicholas.mealville;
+package m.nicholas.mealville.ui;
 
 
 import android.os.Bundle;
@@ -11,14 +11,15 @@ import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import m.nicholas.mealville.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class SearchFragment extends Fragment {
     @BindView(R.id.testFragment) TextView testFragment;
-    public ProfileFragment() {
+    public SearchFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +28,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         ButterKnife.bind(this,view);
         return view;
     }

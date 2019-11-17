@@ -1,25 +1,23 @@
 package m.nicholas.mealville.models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
-public class Recipe {
-    private static List<Recipe> allRecipes = new ArrayList<>();
+public class myOldRecipe {
+    private static List<myOldRecipe> allMyOldRecipes = new ArrayList<>();
     private String mealTitle;
     private String description;
     private String[] ingredients;
     private String[] steps;
     private int id;
 
-    public Recipe(String mealTitle, String description, String ingredients, String steps) {
+    public myOldRecipe(String mealTitle, String description, String ingredients, String steps) {
         this.mealTitle = mealTitle;
         this.description = description;
         this.ingredients = ingredients.split(",");
         this.steps = steps.split("\\.");
-        allRecipes.add(this);
-        this.id = allRecipes.size();
+        allMyOldRecipes.add(this);
+        this.id = allMyOldRecipes.size();
     }
 
     public String getMealTitle() {
@@ -63,7 +61,7 @@ public class Recipe {
     }
 
     /*----------- STATIC METHODS-----------*/
-    public static List<Recipe> getAllRecipes() {
-        return allRecipes;
+    public static List<myOldRecipe> getAllMyOldRecipes() {
+        return allMyOldRecipes;
     }
 }

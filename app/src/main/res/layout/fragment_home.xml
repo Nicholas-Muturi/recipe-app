@@ -1,15 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".ui.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/testFragment"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/imgBreakfast"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/breakfast" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgBreakfast"
+            app:layout_constraintEnd_toEndOf="@id/imgBreakfast"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgBreakfast" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/breakfast"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view1"
+            app:layout_constraintEnd_toEndOf="@id/view1"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view1" />
+
+        <ImageView
+            android:id="@+id/imgLunch"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBreakfast"
+            app:srcCompat="@drawable/lunch" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgLunch"
+            app:layout_constraintEnd_toEndOf="@id/imgLunch"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgLunch" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/lunch"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view2"
+            app:layout_constraintEnd_toEndOf="@id/view2"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view2" />
+
+        <ImageView
+            android:id="@+id/imgDinner"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:scrollY="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgLunch"
+            app:srcCompat="@drawable/dinner" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgDinner"
+            app:layout_constraintEnd_toEndOf="@id/imgDinner"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgDinner" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/dinner"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view3"
+            app:layout_constraintEnd_toEndOf="@id/view3"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view3" />
+
+        <ImageView
+            android:id="@+id/imgSoup"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:scrollY="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgDinner"
+            app:srcCompat="@drawable/soup" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgSoup"
+            app:layout_constraintEnd_toEndOf="@id/imgSoup"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgSoup" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/soup"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view4"
+            app:layout_constraintEnd_toEndOf="@id/view4"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view4" />
+
+        <ImageView
+            android:id="@+id/imgSnacks"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgSoup"
+            app:srcCompat="@drawable/snacks" />
+
+        <View
+            android:id="@+id/view5"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgSnacks"
+            app:layout_constraintEnd_toEndOf="@id/imgSnacks"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgSnacks" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/snacks"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view5"
+            app:layout_constraintEnd_toEndOf="@id/view5"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -2,7 +2,7 @@
 ##### By Nicholas M
 
 ## Description
-Mealville is an android app that allows users to view different recipes easily from the palm of their hands. Users can view recipes for various meals and also be able to post their own custom recipes to known or new dishes.
+Mealville is an android app that allows users to view different myOldRecipes easily from the palm of their hands. Users can view myOldRecipes for various meals and also be able to post their own custom myOldRecipes to known or new dishes.
 
 ## Prerequisites
 + Android Studio

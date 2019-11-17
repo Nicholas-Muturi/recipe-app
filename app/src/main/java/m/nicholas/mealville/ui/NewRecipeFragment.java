@@ -1,21 +1,20 @@
-package m.nicholas.mealville;
+package m.nicholas.mealville.ui;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import m.nicholas.mealville.models.Recipe;
+import m.nicholas.mealville.R;
+import m.nicholas.mealville.models.myOldRecipe;
 
 
 /**
@@ -59,12 +58,12 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
             } else  if(unsplitSteps.isEmpty()){
                 recipeSteps.setError("This field cannot be empty");
             } else {
-                Recipe recipe = new Recipe(title,description,unsplitIngredients,unsplitSteps);
+                myOldRecipe myOldRecipe = new myOldRecipe(title,description,unsplitIngredients,unsplitSteps);
                 recipeTitle.setText("");
                 recipeDescr.setText("");
                 recipeIngredients.setText("");
                 recipeSteps.setText("");
-                Toast.makeText(getContext(),"Recipe Added",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"myOldRecipe Added",Toast.LENGTH_SHORT).show();
             }
         }
     }

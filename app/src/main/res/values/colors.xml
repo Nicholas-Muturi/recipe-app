@@ -10,4 +10,8 @@
     <color name="textWhite">#ffffff</color>
 
     <color name="backgroundGrey">#ECECEC</color>
+
+    <!-- HOME PAGE IMAGE TITLE -->
+    <color name="transparentBlack">#AE000000</color>
+
 </resources>

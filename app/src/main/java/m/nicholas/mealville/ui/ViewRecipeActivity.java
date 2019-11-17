@@ -1,4 +1,4 @@
-package m.nicholas.mealville;
+package m.nicholas.mealville.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import m.nicholas.mealville.R;
 
 public class ViewRecipeActivity extends AppCompatActivity {
     @BindView(R.id.tvViewTitle) TextView tvViewTitle;

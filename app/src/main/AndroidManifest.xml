@@ -12,17 +12,12 @@
         android:theme="@style/AppTheme"
         android:hardwareAccelerated="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ViewRecipeActivity">
+        <activity android:name=".ui.ViewRecipeActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="m.nicholas.mealville.MainActivity" />
+                android:value="m.nicholas.mealville.ui.MainActivity" />
         </activity>
-        <activity android:name=".NewRecipeActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="m.nicholas.mealville.MainActivity" />
-        </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

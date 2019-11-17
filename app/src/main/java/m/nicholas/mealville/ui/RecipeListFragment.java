@@ -1,4 +1,4 @@
-package m.nicholas.mealville;
+package m.nicholas.mealville.ui;
 
 
 import android.os.Bundle;
@@ -8,18 +8,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
+import m.nicholas.mealville.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
-    @BindView(R.id.testFragment) TextView testFragment;
-    public HomeFragment() {
+public class RecipeListFragment extends Fragment {
+
+
+    public RecipeListFragment() {
         // Required empty public constructor
     }
 
@@ -28,9 +26,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        ButterKnife.bind(this,view);
-        return view;
+        return inflater.inflate(R.layout.fragment_recipe_list, container, false);
     }
 
 }

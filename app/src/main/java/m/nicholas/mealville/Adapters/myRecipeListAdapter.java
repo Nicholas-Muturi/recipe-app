@@ -14,27 +14,27 @@ import androidx.annotation.Nullable;
 import java.util.List;
 
 import m.nicholas.mealville.R;
-import m.nicholas.mealville.models.Recipe;
+import m.nicholas.mealville.models.myOldRecipe;
 
-public class myRecipeListAdapter extends ArrayAdapter<Recipe> {
+public class myRecipeListAdapter extends ArrayAdapter<myOldRecipe> {
     private Context mContext;
-    private List<Recipe> mRecipes;
+    private List<myOldRecipe> mMyOldRecipes;
 
-    public myRecipeListAdapter(@NonNull Context context, int resource, List<Recipe> recipes) {
+    public myRecipeListAdapter(@NonNull Context context, int resource, List<myOldRecipe> myOldRecipes) {
         super(context, resource);
         this.mContext = context;
-        this.mRecipes = recipes;
+        this.mMyOldRecipes = myOldRecipes;
     }
 
     @Override
     public int getCount() {
-        return mRecipes.size();
+        return mMyOldRecipes.size();
     }
 
     @Nullable
     @Override
-    public Recipe getItem(int position) {
-        return mRecipes.get(position);
+    public myOldRecipe getItem(int position) {
+        return mMyOldRecipes.get(position);
     }
 
     @NonNull
