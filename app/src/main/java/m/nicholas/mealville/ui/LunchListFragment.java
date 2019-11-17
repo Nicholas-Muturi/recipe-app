@@ -48,7 +48,7 @@ public class LunchListFragment extends Fragment {
         ButterKnife.bind(this,view);
 
         RapidApi client = RapidApiClient.getClient();
-        Call<ApiSearchResult> call = client.getRecipes("lunch","lunch",30);
+        Call<ApiSearchResult> call = client.getResults("lunch","lunch",30);
         call.enqueue(new Callback<ApiSearchResult>() {
             @Override
             public void onResponse(Call<ApiSearchResult> call, Response<ApiSearchResult> response) {
