@@ -16,8 +16,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import m.nicholas.mealville.R;
+import m.nicholas.mealville.models.AnalyzedInstruction;
 import m.nicholas.mealville.models.ExtendedIngredient;
 import m.nicholas.mealville.models.Recipe;
+import m.nicholas.mealville.models.Step;
 import m.nicholas.mealville.network.RapidApi;
 import m.nicholas.mealville.network.RapidApiClient;
 import retrofit2.Call;
@@ -29,7 +31,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     @BindView(R.id.tvViewIngredients) TextView tvViewIngredients;
     @BindView(R.id.tvViewSteps) TextView tvViewSteps;
     @BindView(R.id.tvViewPrepTime) TextView tvViewPrepTime;
-    @BindView(R.id.tvViewServingNo) TextView tvServing;
+    @BindView(R.id.tvViewServingNo) TextView tvServingNo;
     @BindView(R.id.foodImage) ImageView ivFoodImage;
 
 
@@ -67,17 +69,14 @@ public class ViewRecipeActivity extends AppCompatActivity {
                         tvViewIngredients.append("- "+ ingredient.getName() +"\n");
                     }
 
-                    //Split Steps String
-                    String[] steps = recipe.getInstructions().split("\\.");
-                    for(int i = 0; i < steps.length; i++){
-                        int counter = i+1;
-                        tvViewSteps.append(counter +": "+ steps[i] +"\n");
-                        System.out.println(counter +": "+ steps[i] +"\n");
+                    //get Steps
+                    List<Step> stepList = recipe.getAnalyzedInstructions().get(0).getSteps();
+                    for(Step step : stepList){
+                        tvViewSteps.append(step.getNumber()+": "+step.getStep()+ "\n\n");
                     }
-
                     tvViewTitle.setText(recipe.getTitle());
                     tvViewPrepTime.setText(prepTime);
-                    tvServing.setText(0);
+                    tvServingNo.setText(String.valueOf(recipe.getServings()));
                     Picasso.get().load(recipe.getImage()).into(ivFoodImage);
                 }
             }

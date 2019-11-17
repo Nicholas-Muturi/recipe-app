@@ -85,6 +85,9 @@ public class Recipe {
     @SerializedName("instructions")
     @Expose
     private String instructions;
+    @SerializedName("analyzedInstructions")
+    @Expose
+    private List<AnalyzedInstruction> analyzedInstructions = null;
 
     /**
      * No args constructor for use in serialization
@@ -122,7 +125,7 @@ public class Recipe {
      * @param sourceName
      * @param ketogenic
      */
-    public Recipe(Boolean vegetarian, Boolean vegan, Boolean glutenFree, Boolean dairyFree, Boolean veryHealthy, Boolean cheap, Boolean veryPopular, Boolean sustainable, Integer weightWatcherSmartPoints, String gaps, Boolean lowFodmap, Boolean ketogenic, Boolean whole30, Integer servings, String sourceUrl, String spoonacularSourceUrl, Integer aggregateLikes, String creditText, String sourceName, List<ExtendedIngredient> extendedIngredients, Integer id, String title, Integer readyInMinutes, String image, String imageType, String instructions) {
+    public Recipe(Boolean vegetarian, Boolean vegan, Boolean glutenFree, Boolean dairyFree, Boolean veryHealthy, Boolean cheap, Boolean veryPopular, Boolean sustainable, Integer weightWatcherSmartPoints, String gaps, Boolean lowFodmap, Boolean ketogenic, Boolean whole30, Integer servings, String sourceUrl, String spoonacularSourceUrl, Integer aggregateLikes, String creditText, String sourceName, List<ExtendedIngredient> extendedIngredients, Integer id, String title, Integer readyInMinutes, String image, String imageType, String instructions,List<AnalyzedInstruction> analyzedInstructions) {
         super();
         this.vegetarian = vegetarian;
         this.vegan = vegan;
@@ -150,6 +153,7 @@ public class Recipe {
         this.image = image;
         this.imageType = imageType;
         this.instructions = instructions;
+        this.analyzedInstructions = analyzedInstructions;
     }
 
     public Boolean getVegetarian() {
@@ -358,6 +362,14 @@ public class Recipe {
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
+    }
+
+    public List<AnalyzedInstruction> getAnalyzedInstructions() {
+        return analyzedInstructions;
+    }
+
+    public void setAnalyzedInstructions(List<AnalyzedInstruction> analyzedInstructions) {
+        this.analyzedInstructions = analyzedInstructions;
     }
 
 }
