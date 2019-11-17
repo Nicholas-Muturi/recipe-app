@@ -49,9 +49,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view == imgBreakfast){
-            NewRecipeFragment recipeFragment = new NewRecipeFragment();
+            RecipeListFragment recipeListFragment = new RecipeListFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,recipeFragment)
+            transaction.replace(R.id.fragment_container,recipeListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();
