@@ -15,15 +15,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import m.nicholas.mealville.R;
-import m.nicholas.mealville.models.myOldRecipe;
+import m.nicholas.mealville.models.Result;
 
 public class myRecyclerCardAdapter extends RecyclerView.Adapter<myRecyclerCardAdapter.myViewHolder> {
     private Context mContext;
-    private List<myOldRecipe> myOldRecipes;
+    private List<Result> allResults;
 
-    public myRecyclerCardAdapter(Context mContext, List<myOldRecipe> myOldRecipes) {
+    public myRecyclerCardAdapter(Context mContext, List<Result> results) {
         this.mContext = mContext;
-        this.myOldRecipes = myOldRecipes;
+        this.allResults = results;
     }
 
     @NonNull
@@ -35,12 +35,12 @@ public class myRecyclerCardAdapter extends RecyclerView.Adapter<myRecyclerCardAd
 
     @Override
     public void onBindViewHolder(@NonNull myRecyclerCardAdapter.myViewHolder holder, int position) {
-        holder.bindItems(myOldRecipes.get(position));
+        holder.bindItems(allResults.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return myOldRecipes.size();
+        return allResults.size();
     }
 
 
@@ -61,8 +61,11 @@ public class myRecyclerCardAdapter extends RecyclerView.Adapter<myRecyclerCardAd
 
         }
 
-        public void bindItems(myOldRecipe recipe){
-            recipeTitle.setText(recipe.getMealTitle());
+        public void bindItems(Result result){
+            String imageUrl = "https://spoonacular.com/recipeImages/" +result.getImageUrls();
+            String prepTime = "Prep Time: "+result.getReadyInMinutes()+ " min";
+            recipeTitle.setText(result.getTitle());
+            recipePrepTime.setText(prepTime);
         }
 
     }

@@ -27,7 +27,7 @@ public class ApiSearchResult {
     private Integer processingTimeMs;
     @SerializedName("expires")
     @Expose
-    private Integer expires;
+    private Double expires;
     @SerializedName("isStale")
     @Expose
     private Boolean isStale;
@@ -50,7 +50,7 @@ public class ApiSearchResult {
      * @param isStale
      * @param results
      */
-    public ApiSearchResult(List<Result> results, String baseUri, Integer offset, Integer number, Integer totalResults, Integer processingTimeMs, Integer expires, Boolean isStale) {
+    public ApiSearchResult(List<Result> results, String baseUri, Integer offset, Integer number, Integer totalResults, Integer processingTimeMs, Double expires, Boolean isStale) {
         super();
         this.results = results;
         this.baseUri = baseUri;
@@ -110,11 +110,11 @@ public class ApiSearchResult {
         this.processingTimeMs = processingTimeMs;
     }
 
-    public Integer getExpires() {
+    public Double getExpires() {
         return expires;
     }
 
-    public void setExpires(Integer expires) {
+    public void setExpires(Double expires) {
         this.expires = expires;
     }
 
