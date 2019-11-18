@@ -25,6 +25,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.imgDinner) ImageView imgDinner;
     @BindView(R.id.imgSoup) ImageView imgSoup;
     @BindView(R.id.imgSnacks) ImageView imgSnacks;
+    private Bundle args = new Bundle();
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -47,41 +48,51 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view == imgBreakfast){
-            BreakfastListFragment breakfastListFragment = new BreakfastListFragment();
+            HomeListFragment homeListFragment = new HomeListFragment();
+            args.putString("break_key","breakfast");
+            homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,breakfastListFragment)
+            transaction.replace(R.id.fragment_container,homeListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();
         }
         if(view == imgLunch){
-            LunchListFragment lunchListFragment = new LunchListFragment();
+            HomeListFragment homeListFragment = new HomeListFragment();
+            args.putString("lunch_key","lunch");
+            homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,lunchListFragment)
+            transaction.replace(R.id.fragment_container,homeListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();
         }
         if(view == imgDinner){
-            DinnerListFragment dinnerListFragment = new DinnerListFragment();
+            HomeListFragment homeListFragment = new HomeListFragment();
+            args.putString("dinner_key","dinner");
+            homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,dinnerListFragment)
+            transaction.replace(R.id.fragment_container,homeListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();
         }
         if(view == imgSoup){
-            SoupListFragment soupListFragment = new SoupListFragment();
+            HomeListFragment homeListFragment = new HomeListFragment();
+            args.putString("soups_key","soups");
+            homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,soupListFragment)
+            transaction.replace(R.id.fragment_container,homeListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();
         }
         if(view == imgSnacks){
-            SnacksListFragment snacksListFragment = new SnacksListFragment();
+            HomeListFragment homeListFragment = new HomeListFragment();
+            args.putString("snacks_key","snacks");
+            homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container,snacksListFragment)
+            transaction.replace(R.id.fragment_container,homeListFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                     .addToBackStack(null)
                     .commit();

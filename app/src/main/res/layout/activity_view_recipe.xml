@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp">
+
         <ImageView
             android:id="@+id/foodImage"
             android:layout_width="413dp"
@@ -48,9 +49,9 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
                     android:text="Meal Title"
+                    android:textAlignment="center"
                     android:textColor="@color/textBlack"
                     android:textSize="19sp"
-                    android:textAlignment="center"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -111,8 +112,8 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="36dp"
             android:text="Ingredients"
-            android:textSize="17sp"
             android:textColor="@color/textBlack"
+            android:textSize="17sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView" />
 
