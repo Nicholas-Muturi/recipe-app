@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/imgSingleMeal"
+            android:id="@+id/imgSingleMealSearch"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_marginStart="16dp"
@@ -32,10 +32,10 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:background="@color/transparentBlack"
-            app:layout_constraintBottom_toBottomOf="@id/imgSingleMeal"
-            app:layout_constraintEnd_toEndOf="@id/imgSingleMeal"
+            app:layout_constraintBottom_toBottomOf="@id/imgSingleMealSearch"
+            app:layout_constraintEnd_toEndOf="@id/imgSingleMealSearch"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/imgSingleMeal" />
+            app:layout_constraintStart_toStartOf="@id/imgSingleMealSearch" />
 
         <TextView
             android:id="@+id/textView3"
@@ -52,7 +52,7 @@
             app:layout_constraintStart_toStartOf="@id/view20" />
 
         <ImageView
-            android:id="@+id/imgIngredients"
+            android:id="@+id/imgIngredientSearch"
             android:layout_width="0dp"
             android:layout_height="160dp"
             android:layout_marginStart="16dp"
@@ -63,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgSingleMeal"
+            app:layout_constraintTop_toBottomOf="@id/imgSingleMealSearch"
             app:srcCompat="@drawable/ingredients" />
 
         <View
@@ -71,10 +71,10 @@
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:background="@color/transparentBlack"
-            app:layout_constraintBottom_toBottomOf="@id/imgIngredients"
-            app:layout_constraintEnd_toEndOf="@id/imgIngredients"
+            app:layout_constraintBottom_toBottomOf="@id/imgIngredientSearch"
+            app:layout_constraintEnd_toEndOf="@id/imgIngredientSearch"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@id/imgIngredients" />
+            app:layout_constraintStart_toStartOf="@id/imgIngredientSearch" />
 
         <TextView
             android:id="@+id/textView4"

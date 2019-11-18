@@ -20,8 +20,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildTypes.each{
-        it.buildConfigField 'String','API_KEY',API_KEY
+    buildTypes.each {
+        it.buildConfigField 'String', 'API_KEY', API_KEY
     }
 }
 
