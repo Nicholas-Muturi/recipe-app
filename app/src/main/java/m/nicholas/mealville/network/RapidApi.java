@@ -1,12 +1,9 @@
 package m.nicholas.mealville.network;
 
-import java.lang.annotation.Target;
-
 import m.nicholas.mealville.models.ApiSearchResult;
 import m.nicholas.mealville.models.FindByIngredients;
 import m.nicholas.mealville.models.Recipe;
 import retrofit2.Call;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -22,5 +19,5 @@ public interface RapidApi {
     Call<Recipe> getRecipes(@Path("id") int recipeId);
 
     @GET("recipes/findByIngredients")
-    Call<FindByIngredients> getResultsByIngredients(@Query("ingredients") String ingredients);
+    Call<FindByIngredients[]> getResultsByIngredients(@Query("ingredients") String ingredients, @Query("number") int numberOfResults);
 }
