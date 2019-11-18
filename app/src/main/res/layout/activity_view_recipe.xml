@@ -9,8 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="30dp">
-
+        android:paddingBottom="10dp">
         <ImageView
             android:id="@+id/foodImage"
             android:layout_width="413dp"

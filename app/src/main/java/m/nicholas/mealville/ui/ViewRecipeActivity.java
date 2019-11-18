@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -33,7 +34,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     @BindView(R.id.tvViewPrepTime) TextView tvViewPrepTime;
     @BindView(R.id.tvViewServingNo) TextView tvServingNo;
     @BindView(R.id.foodImage) ImageView ivFoodImage;
-
+    private int recipeId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,22 @@ public class ViewRecipeActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent recipeIntent = getIntent();
-        int recipeId = recipeIntent.getIntExtra("rId",0);
+        recipeId = recipeIntent.getIntExtra("rId",0);
+        String key = recipeIntent.getStringExtra("key");
 
+        switch (key){
+            case "apiRecipe":
+                getApiRecipe();
+                break;
+            case "customRecipe":
+                getCustomRecipe();
+                break;
+        }
+
+
+    }
+
+    public void getApiRecipe(){
         RapidApi client = RapidApiClient.getClient();
         Call<Recipe> call = client.getRecipes(recipeId);
         call.enqueue(new Callback<Recipe>() {
@@ -64,9 +79,8 @@ public class ViewRecipeActivity extends AppCompatActivity {
 
                     //Get all names of ingredients
                     List<ExtendedIngredient> allIngredients = recipe.getExtendedIngredients();
-                    List<String> ingredientNames = new ArrayList<>();
                     for(ExtendedIngredient ingredient :allIngredients){
-                        tvViewIngredients.append("- "+ ingredient.getName() +"\n");
+                        tvViewIngredients.append("- "+ ingredient.getOriginalString() +"\n");
                     }
 
                     //get Steps
@@ -86,11 +100,9 @@ public class ViewRecipeActivity extends AppCompatActivity {
                 System.out.println("Massive Failure");
             }
         });
-
     }
 
-    public void ApiRecipe(){
+    public void getCustomRecipe(){
 
     }
-
 }

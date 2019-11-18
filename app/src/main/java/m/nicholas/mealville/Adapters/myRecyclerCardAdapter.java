@@ -82,6 +82,7 @@ public class myRecyclerCardAdapter extends RecyclerView.Adapter<myRecyclerCardAd
         public void onClick(View view) {
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, ViewRecipeActivity.class);
+            intent.putExtra("key","apiRecipe");
             intent.putExtra("rId",allResults.get(itemPosition).getId());
             mContext.startActivity(intent);
         }

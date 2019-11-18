@@ -1,15 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/testFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Search" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgSingleMeal"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            android:scrollY="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/gourmet" />
+
+        <View
+            android:id="@+id/view20"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgSingleMeal"
+            app:layout_constraintEnd_toEndOf="@id/imgSingleMeal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgSingleMeal" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/by_meal"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view20"
+            app:layout_constraintEnd_toEndOf="@id/view20"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view20" />
+
+        <ImageView
+            android:id="@+id/imgIngredients"
+            android:layout_width="0dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgSingleMeal"
+            app:srcCompat="@drawable/ingredients" />
+
+        <View
+            android:id="@+id/view21"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@color/transparentBlack"
+            app:layout_constraintBottom_toBottomOf="@id/imgIngredients"
+            app:layout_constraintEnd_toEndOf="@id/imgIngredients"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/imgIngredients" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:text="@string/by_ingredients"
+            android:textAlignment="center"
+            android:textColor="@color/textWhite"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/view21"
+            app:layout_constraintEnd_toEndOf="@id/view21"
+            app:layout_constraintHorizontal_bias="0.11"
+            app:layout_constraintStart_toStartOf="@id/view21" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

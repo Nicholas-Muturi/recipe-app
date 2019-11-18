@@ -25,6 +25,10 @@
     <string name="soup">Soups</string>
     <string name="snacks">Snacks</string>
 
+    <!-- Search image labels -->
+    <string name="by_meal">Search by food</string>
+    <string name="by_ingredients">Search by ingredients</string>
+
     <!-- Search Result Messages-->
     <string name="failure_message">Something went terribly wrong. Please check your Internet connection and try again later</string>
     <string name="unsuccessful_message">Something went wrong. Please try again later</string>
