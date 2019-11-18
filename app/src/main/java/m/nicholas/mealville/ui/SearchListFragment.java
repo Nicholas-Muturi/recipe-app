@@ -74,11 +74,17 @@ public class SearchListFragment extends Fragment {
                 hideProgressBar();
                 if(response.isSuccessful()){
                     List<Result> resultList = response.body().getResults();
-                    recyclerCardAdapter = new myRecyclerCardAdapter(getContext(),resultList);
-                    GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
-                    recipeRecyclerView.setAdapter(recyclerCardAdapter);
-                    recipeRecyclerView.setLayoutManager(gridLayoutManager);
-                    showResults();
+                    if(resultList.size() == 0){
+                        showNoResultsFound();
+                    }
+                    else {
+                        recyclerCardAdapter = new myRecyclerCardAdapter(getContext(),resultList);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+                        recipeRecyclerView.setAdapter(recyclerCardAdapter);
+                        recipeRecyclerView.setLayoutManager(gridLayoutManager);
+                        showResults();
+                    }
+
                 }
                 else {
                     showUnsuccessfulMessage();
@@ -101,11 +107,17 @@ public class SearchListFragment extends Fragment {
                 hideProgressBar();
                 if(response.isSuccessful()){
                     List<FindByIngredients> results = Arrays.asList(response.body());
-                    ingredientsRecyclerAdapter = new mySearchByIngredientsRecyclerAdapter(getContext(),results);
-                    GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
-                    recipeRecyclerView.setAdapter(ingredientsRecyclerAdapter);
-                    recipeRecyclerView.setLayoutManager(gridLayoutManager);
-                    showResults();
+                    if(results.size() == 0){
+                        showNoResultsFound();
+                    }
+                    else {
+                        ingredientsRecyclerAdapter = new mySearchByIngredientsRecyclerAdapter(getContext(),results);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+                        recipeRecyclerView.setAdapter(ingredientsRecyclerAdapter);
+                        recipeRecyclerView.setLayoutManager(gridLayoutManager);
+                        showResults();
+                    }
+
                 }
                 else {
                     showUnsuccessfulMessage();
@@ -125,6 +137,11 @@ public class SearchListFragment extends Fragment {
 
     private void showFailureMessage() {
         mErrorTextView.setText(getString(R.string.failure_message));
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showNoResultsFound() {
+        mErrorTextView.setText(getString(R.string.no_results));
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 

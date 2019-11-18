@@ -32,5 +32,6 @@
     <!-- Search Result Messages-->
     <string name="failure_message">Something went terribly wrong. Please check your Internet connection and try again later</string>
     <string name="unsuccessful_message">Something went wrong. Please try again later</string>
+    <string name="no_results">No results found</string>
 
 </resources>
