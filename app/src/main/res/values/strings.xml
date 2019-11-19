@@ -2,8 +2,8 @@
     <string name="app_name">Mealville</string>
     <string name="meal_title">Meal Title</string>
     <string name="description">Description</string>
-    <string name="ingredients">Ingredients (Separated using a comma)</string>
-    <string name="steps">Steps (Separated using a full-stop)</string>
+    <string name="ingredients">Ingredients (Comma-separated)</string>
+    <string name="steps">Steps (Period/Full-stop separated)</string>
     <string name="submit">Submit Recipe</string>
     <string name="new_recipe">New Recipe</string>
     <string name="view_steps">Steps</string>

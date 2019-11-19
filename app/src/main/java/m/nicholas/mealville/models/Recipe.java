@@ -156,6 +156,14 @@ public class Recipe {
         this.analyzedInstructions = analyzedInstructions;
     }
 
+    public Recipe(String title, Integer readyInMinutes,Integer servings,List<ExtendedIngredient> extendedIngredients, List<AnalyzedInstruction> analyzedInstructions){
+        this.title = title;
+        this.servings = servings;
+        this.readyInMinutes = readyInMinutes;
+        this.extendedIngredients = extendedIngredients;
+        this.analyzedInstructions = analyzedInstructions;
+    }
+
     public Boolean getVegetarian() {
         return vegetarian;
     }

@@ -72,6 +72,11 @@ public class ExtendedIngredient {
         this.metaInformation = metaInformation;
     }
 
+    public ExtendedIngredient(String originalString) {
+        super();
+        this.originalString = originalString;
+    }
+
     public Integer getId() {
         return id;
     }

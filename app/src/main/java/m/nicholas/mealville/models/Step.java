@@ -44,6 +44,12 @@ public class Step {
         this.equipment = equipment;
     }
 
+    public Step(Integer number, String step) {
+        super();
+        this.number = number;
+        this.step = step;
+    }
+
     public Integer getNumber() {
         return number;
     }

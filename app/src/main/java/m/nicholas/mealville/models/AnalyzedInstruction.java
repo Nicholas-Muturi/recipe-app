@@ -33,6 +33,11 @@ public class AnalyzedInstruction {
         this.steps = steps;
     }
 
+    public AnalyzedInstruction(List<Step> steps) {
+        super();
+        this.steps = steps;
+    }
+
     public String getName() {
         return name;
     }
