@@ -2,22 +2,19 @@ package m.nicholas.mealville.ui;
 
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -27,7 +24,6 @@ import butterknife.ButterKnife;
 import m.nicholas.mealville.Adapters.myFirebaseViewHolder;
 import m.nicholas.mealville.Constants;
 import m.nicholas.mealville.R;
-import m.nicholas.mealville.models.Custom_Recipe;
 import m.nicholas.mealville.models.Result;
 
 /**
@@ -90,6 +86,9 @@ public class CustomRecipeFragment extends Fragment {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_recyclerview_recipe_item,parent,false);
                 return new myFirebaseViewHolder(view);
             }
+
+
+
         };
 
         recipeRecyclerView.setAdapter(mFirebaseRecyclerAdapter);

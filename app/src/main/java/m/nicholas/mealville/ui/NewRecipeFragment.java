@@ -129,7 +129,6 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
         recipeServing.setText("");
         recipeIngredients.setText("");
         recipeSteps.setText("");
-        btnSubmitRecipe.setText("");
     }
 
 

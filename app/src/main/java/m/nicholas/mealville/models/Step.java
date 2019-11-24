@@ -5,8 +5,9 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import m.nicholas.mealville.Ingredient;
+import org.parceler.Parcel;
 
+@Parcel
 public class Step {
 
     @SerializedName("number")

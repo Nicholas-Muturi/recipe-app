@@ -5,6 +5,9 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class ExtendedIngredient {
 
     @SerializedName("id")
@@ -34,9 +37,7 @@ public class ExtendedIngredient {
     @SerializedName("originalString")
     @Expose
     private String originalString;
-    @SerializedName("metaInformation")
-    @Expose
-    private List<Object> metaInformation = null;
+
 
     /**
      * No args constructor for use in serialization
@@ -56,9 +57,8 @@ public class ExtendedIngredient {
      * @param originalString
      * @param id
      * @param aisle
-     * @param metaInformation
      */
-    public ExtendedIngredient(Integer id, String aisle, String image, String name, Double amount, String unit, String unitShort, String unitLong, String originalString, List<Object> metaInformation) {
+    public ExtendedIngredient(Integer id, String aisle, String image, String name, Double amount, String unit, String unitShort, String unitLong, String originalString) {
         super();
         this.id = id;
         this.aisle = aisle;
@@ -69,7 +69,6 @@ public class ExtendedIngredient {
         this.unitShort = unitShort;
         this.unitLong = unitLong;
         this.originalString = originalString;
-        this.metaInformation = metaInformation;
     }
 
     public ExtendedIngredient(String originalString) {
@@ -147,14 +146,6 @@ public class ExtendedIngredient {
 
     public void setOriginalString(String originalString) {
         this.originalString = originalString;
-    }
-
-    public List<Object> getMetaInformation() {
-        return metaInformation;
-    }
-
-    public void setMetaInformation(List<Object> metaInformation) {
-        this.metaInformation = metaInformation;
     }
 
 }

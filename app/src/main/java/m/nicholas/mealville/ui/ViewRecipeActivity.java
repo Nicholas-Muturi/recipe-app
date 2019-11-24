@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +105,29 @@ public class ViewRecipeActivity extends AppCompatActivity {
     }
 
     public void getCustomRecipe(){
+        Recipe recipe = Parcels.unwrap(getIntent().getParcelableExtra("recipe"));
+        String prepTime;
+        if(recipe.getReadyInMinutes()<60){
+            prepTime = recipe.getReadyInMinutes()+ " min";
+        } else {
+            double time = (double) recipe.getReadyInMinutes()/60.0;
+            DecimalFormat format = new DecimalFormat("##.0");
+            prepTime = format.format(time)+ " hrs";
+        }
 
+        //Get all names of ingredients
+        List<ExtendedIngredient> allIngredients = recipe.getExtendedIngredients();
+        for(ExtendedIngredient ingredient :allIngredients){
+            tvViewIngredients.append("- "+ ingredient.getOriginalString() +"\n");
+        }
+
+        //get Steps
+        List<Step> stepList = recipe.getAnalyzedInstructions().get(0).getSteps();
+        for(Step step : stepList){
+            tvViewSteps.append(step.getNumber()+": "+step.getStep()+ "\n\n");
+        }
+        tvViewTitle.setText(recipe.getTitle());
+        tvViewPrepTime.setText(prepTime);
+        tvServingNo.setText(String.valueOf(recipe.getServings()));
     }
 }
