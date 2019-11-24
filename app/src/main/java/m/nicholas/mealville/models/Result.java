@@ -23,6 +23,8 @@ public class Result {
     @Expose
     private List<String> imageUrls = null;
 
+    private String firebaseId;
+
     /**
      * No args constructor for use in serialization
      * 
@@ -45,6 +47,13 @@ public class Result {
         this.readyInMinutes = readyInMinutes;
         this.image = image;
         this.imageUrls = imageUrls;
+    }
+
+    public Result(String firebaseId, String title, Integer readyInMinutes) {
+        super();
+        this.firebaseId = firebaseId;
+        this.title = title;
+        this.readyInMinutes = readyInMinutes;
     }
 
     public Integer getId() {
@@ -87,4 +96,11 @@ public class Result {
         this.imageUrls = imageUrls;
     }
 
+    public String getFirebaseId() {
+        return firebaseId;
+    }
+
+    public void setFirebaseId(String firebaseId) {
+        this.firebaseId = firebaseId;
+    }
 }

@@ -1,8 +1,6 @@
 package m.nicholas.mealville.ui;
 
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,17 +10,21 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import m.nicholas.mealville.Constants;
 import m.nicholas.mealville.R;
 import m.nicholas.mealville.models.AnalyzedInstruction;
-import m.nicholas.mealville.models.Custom_Recipe;
 import m.nicholas.mealville.models.ExtendedIngredient;
 import m.nicholas.mealville.models.Recipe;
+import m.nicholas.mealville.models.Result;
 import m.nicholas.mealville.models.Step;
 
 
@@ -37,13 +39,6 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
     @BindView(R.id.etRecipeIngredients) EditText recipeIngredients;
     @BindView(R.id.etRecipeSteps) EditText recipeSteps;
     @BindView(R.id.btnSubmitRecipe) Button btnSubmitRecipe;
-
-    private String customTitle;
-    private int customPrepTime;
-    private int customServing;
-    private List<String> customIngredients = new ArrayList<>();
-    private List<String> customSteps = new ArrayList<>();
-
 
     public NewRecipeFragment() {
         // Required empty public constructor
@@ -61,19 +56,15 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        if(handleUserInput()) {
-            // TODO: 19-Nov-19 set up custom recipe adapter 
-        }
-        else Log.d(TAG, "onClick: failed");
-        
+        validate_and_createRecipe();
     }
 
-    public boolean handleUserInput(){
-        customTitle = recipeTitle.getText().toString().trim();
+    private void validate_and_createRecipe(){
+        String customTitle = recipeTitle.getText().toString().trim();
         String stringTime = recipePrepTime.getText().toString().trim();
         String stringServing = recipeServing.getText().toString().trim();
-        customIngredients = Arrays.asList(recipeIngredients.getText().toString().trim().split(","));
-        customSteps = Arrays.asList(recipeSteps.getText().toString().trim().split("\\."));
+        List<String> customIngredients = Arrays.asList(recipeIngredients.getText().toString().trim().split(","));
+        List<String> customSteps = Arrays.asList(recipeSteps.getText().toString().trim().split("\\."));
 
         if(customTitle.isEmpty()) recipeTitle.setError("Please fill in this field");
         else if(stringTime.isEmpty()) recipeTitle.setError("Please fill in this field");
@@ -101,12 +92,41 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
             List<AnalyzedInstruction> analyzedInstructionList = new ArrayList<>();
             analyzedInstructionList.add(analyzedInstruction);
 
+            //Typecast Strings to Int
+            int customPrepTime = Integer.parseInt(stringTime);
+            int customServing = Integer.parseInt(stringServing);
+
             Recipe recipe = new Recipe(customTitle,customPrepTime,customServing,ingredientList,analyzedInstructionList);
-            Custom_Recipe.addCustomRecipe(recipe);
-            return true;
+            uploadRecipeToFirebase(recipe);
+            resetFields();
         }
-        return false;
     }
+
+    private void uploadRecipeToFirebase(Recipe recipe){
+        //Push Recipe
+        DatabaseReference mRecipeRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPE);
+        String firebaseRecipeId = mRecipeRef.push().getKey();
+        recipe.setFirebaseId(firebaseRecipeId);
+        mRecipeRef.child(firebaseRecipeId).setValue(recipe);
+
+        //Push Result Object used in Searching
+        DatabaseReference mResultRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RESULT);
+        Result result = new Result(firebaseRecipeId,recipe.getTitle(),recipe.getReadyInMinutes());
+        mResultRef.push().setValue(result);
+
+        //Notify User
+        Toast.makeText(getContext(),"Recipe Stored", Toast.LENGTH_SHORT).show();
+    }
+
+    private void resetFields(){
+        recipeTitle.setText("");
+        recipePrepTime.setText("");
+        recipeServing.setText("");
+        recipeIngredients.setText("");
+        recipeSteps.setText("");
+        btnSubmitRecipe.setText("");
+    }
+
 
 }//complete end
 

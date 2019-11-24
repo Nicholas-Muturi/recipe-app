@@ -93,7 +93,9 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="@string/ingredients">
+                android:hint="@string/ingredients"
+                app:helperTextEnabled="true"
+                app:helperText="Comma-separated">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etRecipeIngredients"
@@ -111,7 +113,9 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="@string/steps">
+                android:hint="@string/cooking_steps"
+                app:helperTextEnabled="true"
+                app:helperText="Period/Full-stop separated">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etRecipeSteps"

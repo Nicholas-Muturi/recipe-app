@@ -88,6 +88,7 @@ public class Recipe {
     @SerializedName("analyzedInstructions")
     @Expose
     private List<AnalyzedInstruction> analyzedInstructions = null;
+    private String firebaseId;
 
     /**
      * No args constructor for use in serialization
@@ -380,4 +381,11 @@ public class Recipe {
         this.analyzedInstructions = analyzedInstructions;
     }
 
+    public String getFirebaseId() {
+        return firebaseId;
+    }
+
+    public void setFirebaseId(String firebaseId) {
+        this.firebaseId = firebaseId;
+    }
 }
