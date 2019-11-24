@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "710270833236",
+    "firebase_url": "https://mealville-app.firebaseio.com",
+    "project_id": "mealville-app",
+    "storage_bucket": "mealville-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:710270833236:android:a4b94ed068da2912ee53c1",
+        "android_client_info": {
+          "package_name": "m.nicholas.mealville"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "710270833236-4duu8dpffaq8iuj371b3hl3bio228m2o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "m.nicholas.mealville",
+            "certificate_hash": "312f2d85a393f31dd23a660248a78a39e46e6980"
+          }
+        },
+        {
+          "client_id": "710270833236-one2bg3j4c0j8u2h8o74av47if5mk2ea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeEwm4nLkxsvHYkQVkQTU6UDzOVS8mGyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "710270833236-one2bg3j4c0j8u2h8o74av47if5mk2ea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
