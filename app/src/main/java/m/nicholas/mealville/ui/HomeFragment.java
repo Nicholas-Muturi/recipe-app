@@ -26,10 +26,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.imgSoup) ImageView imgSoup;
     @BindView(R.id.imgSnacks) ImageView imgSnacks;
     private Bundle args = new Bundle();
+
     public HomeFragment() {
         // Required empty public constructor
     }
 
+    public static HomeFragment newInstance(){
+        return new HomeFragment();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

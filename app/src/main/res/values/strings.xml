@@ -10,9 +10,12 @@
     <string name="view_steps">Steps</string>
     <string name="view_ingredients">Ingredients</string>
 
+    <!-- ACTION BAR MENU -->
+    <string name="search">Search</string>
+
     <!-- BOTTOM NAV MENU -->
     <string name="nav_home">Home</string>
-    <string name="nav_search">Search</string>
+    <string name="custom_recipe">Custom Recipes</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_add">New Recipe</string>
 
@@ -34,5 +37,6 @@
     <string name="failure_message">Something went terribly wrong. Please check your Internet connection and try again later</string>
     <string name="unsuccessful_message">Something went wrong. Please try again later</string>
     <string name="no_results">No results found</string>
+
 
 </resources>

@@ -44,6 +44,10 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
         // Required empty public constructor
     }
 
+    public static NewRecipeFragment newInstance(){
+        return new NewRecipeFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -107,6 +111,7 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
         DatabaseReference mRecipeRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPE);
         String firebaseRecipeId = mRecipeRef.push().getKey();
         recipe.setFirebaseId(firebaseRecipeId);
+        assert firebaseRecipeId != null;
         mRecipeRef.child(firebaseRecipeId).setValue(recipe);
 
         //Push Result Object used in Searching

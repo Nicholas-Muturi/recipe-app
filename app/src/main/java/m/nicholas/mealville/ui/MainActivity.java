@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -18,6 +20,7 @@ import m.nicholas.mealville.R;
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     @BindView(R.id.fragment_container) FrameLayout fragment_container;
     @BindView(R.id.bottom_nav) BottomNavigationView bottom_nav;
+    private Fragment selectedFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,27 +28,47 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         bottom_nav.setOnNavigationItemSelectedListener(this);
-        getSupportFragmentManager().beginTransaction().replace(fragment_container.getId(),new HomeFragment()).commit();
+        selectedFragment = HomeFragment.newInstance();
+        implementSelectedFragment();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        Fragment selectedFragment;
         switch (menuItem.getItemId()){
-            case R.id.nav_search:
-                selectedFragment = new SearchFragment();
+            case R.id.custom_recipe:
+                selectedFragment = CustomRecipeFragment.newInstance();
                 break;
             case R.id.nav_add:
-                selectedFragment = new NewRecipeFragment();
+                selectedFragment = NewRecipeFragment.newInstance();
                 break;
             case R.id.nav_profile:
-                selectedFragment = new ProfileFragment();
+                selectedFragment = ProfileFragment.newInstance();
                 break;
             case R.id.nav_home:
             default:
-                selectedFragment = new HomeFragment();
+                selectedFragment = HomeFragment.newInstance();
         }
-        getSupportFragmentManager().beginTransaction().replace(fragment_container.getId(),selectedFragment).commit();
+        implementSelectedFragment();
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.searchMenuOption){
+            selectedFragment = SearchFragment.newInstance();
+            implementSelectedFragment();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void implementSelectedFragment(){
+        getSupportFragmentManager().beginTransaction().replace(fragment_container.getId(),selectedFragment).commit();
     }
 }
