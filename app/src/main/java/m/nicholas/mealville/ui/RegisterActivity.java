@@ -81,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         else if(email.isEmpty()) etEmail.setError("Please fill in this field");
         else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) etEmail.setError("Email doesn't have a proper format");
         else if(password.isEmpty()) etPassword.setError("Please fill in this field");
+        else if(password.length() < 6) etPassword.setError("Password should be 6 characters or longer");
         else if(confirmPass.isEmpty()) etConfirmPassword.setError("Please fill in this field");
         else if(!password.equals(confirmPass)) etConfirmPassword.setError("Passwords do not match");
         else{
