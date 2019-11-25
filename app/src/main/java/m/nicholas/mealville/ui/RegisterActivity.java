@@ -89,6 +89,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                if(task.isSuccessful()){
                    Toast.makeText(this,"Registation Successful",Toast.LENGTH_SHORT).show();
                    setFirebaseDisplayName(task.getResult().getUser(),username);
+                   clearFields();
+                   hideProgress_showButton();
                }else{
                    Toast.makeText(this,"Registation Failed",Toast.LENGTH_SHORT).show();
                    hideProgress_showButton();
