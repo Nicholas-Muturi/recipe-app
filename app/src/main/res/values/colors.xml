@@ -10,6 +10,7 @@
 
     <color name="greyLine">#BEAAAAAA</color>
     <color name="textBlack">#000000</color>
+    <color name="textGrey">#4E4E4E</color>
     <color name="textWhite">#ffffff</color>
 
     <color name="backgroundGrey">#ECECEC</color>
