@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -35,6 +37,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
     @BindView(R.id.tvViewSteps) TextView tvViewSteps;
     @BindView(R.id.tvViewPrepTime) TextView tvViewPrepTime;
     @BindView(R.id.tvViewServingNo) TextView tvServingNo;
+    @BindView(R.id.tvViewAuthor) TextView tvViewAuthor;
     @BindView(R.id.foodImage) ImageView ivFoodImage;
     private int recipeId;
 
@@ -57,7 +60,13 @@ public class ViewRecipeActivity extends AppCompatActivity {
                 break;
         }
 
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_logout,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void getApiRecipe(){
@@ -93,6 +102,7 @@ public class ViewRecipeActivity extends AppCompatActivity {
                     tvViewTitle.setText(recipe.getTitle());
                     tvViewPrepTime.setText(prepTime);
                     tvServingNo.setText(String.valueOf(recipe.getServings()));
+                    tvViewAuthor.setText(getResources().getString(R.string.api_recipe_author));
                     Picasso.get().load(recipe.getImage()).into(ivFoodImage);
                 }
             }
@@ -129,5 +139,6 @@ public class ViewRecipeActivity extends AppCompatActivity {
         tvViewTitle.setText(recipe.getTitle());
         tvViewPrepTime.setText(prepTime);
         tvServingNo.setText(String.valueOf(recipe.getServings()));
+        tvViewAuthor.setText(recipe.getAuthor());
     }
 }

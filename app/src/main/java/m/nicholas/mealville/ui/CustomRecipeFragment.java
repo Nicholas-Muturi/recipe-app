@@ -87,10 +87,7 @@ public class CustomRecipeFragment extends Fragment {
                 return new myFirebaseViewHolder(view);
             }
 
-
-
         };
-
         recipeRecyclerView.setAdapter(mFirebaseRecyclerAdapter);
         recipeRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         hideProgressBar();
@@ -99,16 +96,6 @@ public class CustomRecipeFragment extends Fragment {
 
     private void hideProgressBar(){
         progressBar.setVisibility(View.GONE);
-    }
-
-    private void showFailureMessage() {
-        mErrorTextView.setText(getString(R.string.failure_message));
-        mErrorTextView.setVisibility(View.VISIBLE);
-    }
-
-    private void showUnsuccessfulMessage() {
-        mErrorTextView.setText(getString(R.string.unsuccessful_message));
-        mErrorTextView.setVisibility(View.VISIBLE);
     }
 
     private void showResults() {

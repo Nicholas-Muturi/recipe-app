@@ -18,6 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.parceler.Parcels;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +46,17 @@ public class myFirebaseViewHolder extends RecyclerView.ViewHolder implements Vie
         TextView recipeTitle = mView.findViewById(R.id.recipeCardTitle);
         TextView recipePrepTime = mView.findViewById(R.id.recipeCardReadyTime);
 
+        String prepTime;
+        if(result.getReadyInMinutes()<60){
+            prepTime = "Prep Time: "+result.getReadyInMinutes()+ " min";
+        } else {
+            double time = (double) result.getReadyInMinutes()/60.0;
+            DecimalFormat format = new DecimalFormat("##.0");
+            prepTime = "Prep Time: "+ format.format(time)+ " hrs";
+        }
+
         recipeTitle.setText(result.getTitle());
-        recipePrepTime.setText(String.valueOf(result.getReadyInMinutes()));
+        recipePrepTime.setText(prepTime);
     }
 
 
