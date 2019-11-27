@@ -20,7 +20,7 @@
     <string name="create_account">Don\'t have an account? Create one</string>
     <string name="logo">logo</string>
     <string name="new_account">New Account</string>
-    <string name="already_registered_log_in">Already registered? Log in</string>
+    <string name="already_registered_log_in">Have an account? Log in</string>
 
     <!-- ACTION BAR MENU -->
     <string name="search">Search</string>
