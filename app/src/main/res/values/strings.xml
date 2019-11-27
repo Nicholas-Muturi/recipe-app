@@ -20,7 +20,7 @@
     <string name="create_account">Don\'t have an account? Create one</string>
     <string name="logo">logo</string>
     <string name="new_account">New Account</string>
-    <string name="already_registered_log_in">Already registered? Log in</string>
+    <string name="already_registered_log_in">Have an account? Log in</string>
 
     <!-- ACTION BAR MENU -->
     <string name="search">Search</string>
@@ -49,7 +49,7 @@
     <string name="failure_message">Something went terribly wrong. Please check your Internet connection and try again later</string>
     <string name="unsuccessful_message">Something went wrong. Please try again later</string>
     <string name="no_results">No results found</string>
-
+    <string name="api_recipe_author">by Spoonacular</string>
 
 
 </resources>

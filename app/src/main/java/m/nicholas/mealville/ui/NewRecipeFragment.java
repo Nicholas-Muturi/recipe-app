@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,6 +40,7 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
     @BindView(R.id.etRecipeIngredients) EditText recipeIngredients;
     @BindView(R.id.etRecipeSteps) EditText recipeSteps;
     @BindView(R.id.btnSubmitRecipe) Button btnSubmitRecipe;
+    private FirebaseAuth mAuth;
 
     public NewRecipeFragment() {
         // Required empty public constructor
@@ -54,6 +56,7 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_new_recipe, container, false);
         ButterKnife.bind(this,view);
+        mAuth = FirebaseAuth.getInstance();
         btnSubmitRecipe.setOnClickListener(this);
         return view;
     }
@@ -70,12 +73,16 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
         List<String> customIngredients = Arrays.asList(recipeIngredients.getText().toString().trim().split(","));
         List<String> customSteps = Arrays.asList(recipeSteps.getText().toString().trim().split("\\."));
 
+
         if(customTitle.isEmpty()) recipeTitle.setError("Please fill in this field");
         else if(stringTime.isEmpty()) recipeTitle.setError("Please fill in this field");
         else if(stringServing.isEmpty()) recipeTitle.setError("Please fill in this field");
         else if(customIngredients.isEmpty()) recipeTitle.setError("Please fill in this field");
         else if(customSteps.isEmpty()) recipeTitle.setError("Please fill in this field");
         else {
+            int customPrepTime = Integer.parseInt(stringTime);
+            int customServing = Integer.parseInt(stringServing);
+            String author;
 
             /* -- RETRIEVING STEPS -- */
             List<Step> stepList = new ArrayList<>();
@@ -96,11 +103,11 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
             List<AnalyzedInstruction> analyzedInstructionList = new ArrayList<>();
             analyzedInstructionList.add(analyzedInstruction);
 
-            //Typecast Strings to Int
-            int customPrepTime = Integer.parseInt(stringTime);
-            int customServing = Integer.parseInt(stringServing);
+            if (mAuth.getCurrentUser().getDisplayName() != null)
+                author = "By " + mAuth.getCurrentUser().getDisplayName();
+            else author = "By Anonymous";
 
-            Recipe recipe = new Recipe(customTitle,customPrepTime,customServing,ingredientList,analyzedInstructionList);
+            Recipe recipe = new Recipe(customTitle,customPrepTime,customServing,ingredientList,analyzedInstructionList,author);
             uploadRecipeToFirebase(recipe);
             resetFields();
         }

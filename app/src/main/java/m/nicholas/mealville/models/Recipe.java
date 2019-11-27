@@ -92,6 +92,7 @@ public class Recipe {
     @Expose
     private List<AnalyzedInstruction> analyzedInstructions = null;
     private String firebaseId;
+    private String author;
 
     /**
      * No args constructor for use in serialization
@@ -160,12 +161,13 @@ public class Recipe {
         this.analyzedInstructions = analyzedInstructions;
     }
 
-    public Recipe(String title, Integer readyInMinutes,Integer servings,List<ExtendedIngredient> extendedIngredients, List<AnalyzedInstruction> analyzedInstructions){
+    public Recipe(String title, Integer readyInMinutes,Integer servings,List<ExtendedIngredient> extendedIngredients, List<AnalyzedInstruction> analyzedInstructions,String author){
         this.title = title;
         this.servings = servings;
         this.readyInMinutes = readyInMinutes;
         this.extendedIngredients = extendedIngredients;
         this.analyzedInstructions = analyzedInstructions;
+        this.author = author;
     }
 
     public Boolean getVegetarian() {
@@ -384,11 +386,20 @@ public class Recipe {
         this.analyzedInstructions = analyzedInstructions;
     }
 
+
     public String getFirebaseId() {
         return firebaseId;
     }
 
     public void setFirebaseId(String firebaseId) {
         this.firebaseId = firebaseId;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
