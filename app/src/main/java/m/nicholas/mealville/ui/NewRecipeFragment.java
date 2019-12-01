@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -178,8 +179,18 @@ public class NewRecipeFragment extends Fragment implements View.OnClickListener 
         }
         mResultRef.push().setValue(result);
 
+        //Attach recipe to particular user
+        updateExtraUserInfo(firebaseRecipeId);
+
         //Notify User
         Toast.makeText(getContext(),"Recipe Stored", Toast.LENGTH_SHORT).show();
+    }
+
+    private void updateExtraUserInfo(String recipeId){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference mUserInfoRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_USER_INFO).child(user.getUid());
+        mUserInfoRef.child("name").setValue(user.getDisplayName());
+        mUserInfoRef.child("recipes_posted").push().setValue(recipeId);
     }
 
     private void resetFields(){

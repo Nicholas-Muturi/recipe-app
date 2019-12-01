@@ -6,6 +6,7 @@ public class Constants {
     public static final String API_KEY = BuildConfig.API_KEY;
     public static final String FIREBASE_CHILD_RECIPE = "recipe";
     public static final String FIREBASE_CHILD_RESULT = "result";
+    public static final String FIREBASE_CHILD_USER_INFO = "user_info";
     public static final boolean SAVED_PREFERENCE_REMEMBER_ME = false;
 
 }

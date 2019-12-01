@@ -77,16 +77,11 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener{
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this,task->{
                if(task.isSuccessful()){
                    clearFields();
-
-                   String displayName = task.getResult().getUser().getDisplayName();
-                   Toast.makeText(this,"Welcome "+displayName,Toast.LENGTH_SHORT).show();
-
                    Intent intent = new Intent(this,MainActivity.class);
                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                    hideProgress_showButton();
                    startActivity(intent);
                    finish();
-
                } else {
                    Toast.makeText(this,"Login failed, wrong email or password",Toast.LENGTH_SHORT).show();
                    hideProgress_showButton();
