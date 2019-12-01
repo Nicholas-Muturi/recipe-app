@@ -22,7 +22,7 @@ import m.nicholas.mealville.R;
  */
 public class ProfileFragment extends Fragment {
     @BindView(R.id.tvProfileUsername) TextView tvUsername;
-
+    @BindView(R.id.tvProfileRecipeCounter) TextView tvRecipeCounter;
     public ProfileFragment() {
         // Required empty public constructor
     }
