@@ -49,19 +49,19 @@ public class HomeListFragment extends Fragment {
         assert getArguments() != null;
         Bundle args = getArguments();
 
-        if(args.getString("break_key") != null){
+        if(args.getString("frag_key").equalsIgnoreCase("breakfast")){
             getBreakfast();
         }
-        else if(args.getString("lunch_key") != null){
+        else if(args.getString("frag_key").equalsIgnoreCase("lunch")){
             getLunch();
         }
-        else if(args.getString("dinner_key") != null){
+        else if(args.getString("frag_key").equalsIgnoreCase("dinner")){
             getDinner();
         }
-        else if(args.getString("soups_key") != null){
+        else if(args.getString("frag_key").equalsIgnoreCase("soups")){
             getSoups();
         }
-        else if(args.getString("snacks_key") != null){
+        else if(args.getString("frag_key").equalsIgnoreCase("snacks")){
             getSnacks();
         }
 
@@ -142,7 +142,7 @@ public class HomeListFragment extends Fragment {
 
     private void getDinner(){
         RapidApi client = RapidApiClient.getClient();
-        Call<ApiSearchResult> call = client.getResults("dinner","dinner",30);
+        Call<ApiSearchResult> call = client.getResults("dinner","supper",30);
         call.enqueue(new Callback<ApiSearchResult>() {
             @Override
             public void onResponse(Call<ApiSearchResult> call, Response<ApiSearchResult> response) {

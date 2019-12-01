@@ -35,7 +35,6 @@ public class CustomRecipeFragment extends Fragment {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     private DatabaseReference mResultRef;
     private FirebaseRecyclerAdapter<Result, myFirebaseViewHolder> mFirebaseRecyclerAdapter;
-    private ValueEventListener valueEventListener;
 
     public CustomRecipeFragment() {
         // Required empty public constructor

@@ -53,7 +53,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         if(view == imgBreakfast){
             HomeListFragment homeListFragment = new HomeListFragment();
-            args.putString("break_key","breakfast");
+            args.putString("frag_key","breakfast");
             homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container,homeListFragment)
@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
         if(view == imgLunch){
             HomeListFragment homeListFragment = new HomeListFragment();
-            args.putString("lunch_key","lunch");
+            args.putString("frag_key","lunch");
             homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container,homeListFragment)
@@ -73,7 +73,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
         if(view == imgDinner){
             HomeListFragment homeListFragment = new HomeListFragment();
-            args.putString("dinner_key","dinner");
+            args.putString("frag_key","dinner");
             homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container,homeListFragment)
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
         if(view == imgSoup){
             HomeListFragment homeListFragment = new HomeListFragment();
-            args.putString("soups_key","soups");
+            args.putString("frag_key","soups");
             homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container,homeListFragment)
@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         }
         if(view == imgSnacks){
             HomeListFragment homeListFragment = new HomeListFragment();
-            args.putString("snacks_key","snacks");
+            args.putString("frag_key","snacks");
             homeListFragment.setArguments(args);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
             transaction.replace(R.id.fragment_container,homeListFragment)

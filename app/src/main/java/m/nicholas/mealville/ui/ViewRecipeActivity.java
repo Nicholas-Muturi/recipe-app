@@ -3,7 +3,10 @@ package m.nicholas.mealville.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.ImageView;
@@ -140,5 +143,13 @@ public class ViewRecipeActivity extends AppCompatActivity {
         tvViewPrepTime.setText(prepTime);
         tvServingNo.setText(String.valueOf(recipe.getServings()));
         tvViewAuthor.setText(recipe.getAuthor());
+        if(recipe.getImage() != null){
+            ivFoodImage.setImageBitmap(decodeFromFirebaseBase64(recipe.getImage()));
+        }
+    }
+
+    private Bitmap decodeFromFirebaseBase64(String imageUrl){
+        byte[] decodedByteArray = android.util.Base64.decode(imageUrl, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedByteArray,0,decodedByteArray.length);
     }
 }

@@ -2,8 +2,12 @@ package m.nicholas.mealville.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.parceler.Parcels;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +50,7 @@ public class myFirebaseViewHolder extends RecyclerView.ViewHolder implements Vie
         // TODO: 24-Nov-19 bind image for individual recipe items
         TextView recipeTitle = mView.findViewById(R.id.recipeCardTitle);
         TextView recipePrepTime = mView.findViewById(R.id.recipeCardReadyTime);
+        ImageView recipeImage = mView.findViewById(R.id.recipeImage);
 
         String prepTime;
         if(result.getReadyInMinutes()<60){
@@ -57,6 +63,10 @@ public class myFirebaseViewHolder extends RecyclerView.ViewHolder implements Vie
 
         recipeTitle.setText(result.getTitle());
         recipePrepTime.setText(prepTime);
+        if(result.getImage()!= null ){
+            recipeImage.setImageBitmap(decodeFromFirebaseBase64(result.getImage()));
+        }
+
     }
 
 
@@ -105,6 +115,11 @@ public class myFirebaseViewHolder extends RecyclerView.ViewHolder implements Vie
 
             }
         });
+    }
+
+    private Bitmap decodeFromFirebaseBase64(String imageUrl){
+        byte[] decodedByteArray = android.util.Base64.decode(imageUrl, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedByteArray,0,decodedByteArray.length);
     }
 
 }
