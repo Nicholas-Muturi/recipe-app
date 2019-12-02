@@ -1,7 +1,6 @@
 package m.nicholas.mealville;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 /**
