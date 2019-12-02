@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.nav_add:
                 selectedFragment = NewRecipeFragment.newInstance();
                 break;
-            case R.id.nav_profile:
+            /*case R.id.nav_profile:
                 selectedFragment = ProfileFragment.newInstance();
-                break;
+                break;*/
             case R.id.nav_home:
             default:
                 selectedFragment = HomeFragment.newInstance();

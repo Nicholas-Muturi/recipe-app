@@ -5,17 +5,17 @@
         android:title="@string/nav_home"
         android:icon="@drawable/ic_home"/>
     <item
-        android:id="@+id/custom_recipe"
-        android:title="@string/custom_recipe"
-        android:icon="@drawable/ic_cookbook"/>
-    <item
         android:id="@+id/nav_add"
         android:title="@string/nav_add"
         android:icon="@drawable/ic_add_button"/>
     <item
+        android:id="@+id/custom_recipe"
+        android:title="@string/custom_recipe"
+        android:icon="@drawable/ic_cookbook"/>
+    <!--<item
         android:id="@+id/nav_profile"
         android:title="@string/nav_profile"
-        android:icon="@drawable/ic_user"/>
+        android:icon="@drawable/ic_user"/>-->
 
 
 </menu>
